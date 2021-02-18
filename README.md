@@ -1,7 +1,10 @@
 # Dash Platform Example (Java)
 
-An example Dash Platform project written in Java
+A minimal example Dash Platform project written in Java
 
+This is intended more to show how to get the dependencies set up than cover
+details of using them. Explore the dependency sources for more info - 
+especially [android-dashpay](https://github.com/dashevo/android-dashpay).
 
 ## Table of Contents
 
@@ -40,7 +43,11 @@ cd ..
 ## Usage 
 
 To run the example, Right click the [src/main/java/Connect](./src/main/java/Connect.java)
-file and select `Run 'Connect.main()'`. The output will show up in the `Run` Tool Window
+file and select `Run 'Connect.main()'`. 
+
+![Run example](./run.png)
+
+The output will show up in the `Run` Tool Window
 and should include a response that may contain some debug info along with output similar to:
 
 ```text
