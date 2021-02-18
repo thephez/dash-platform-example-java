@@ -5,7 +5,6 @@ public class Connect {
 
     public static void main(String[] args) {
         Client sdk = new Client("testnet");
-        sdk.getPlatform().setClient(new DapiClient("174.34.233.134", false));
         DapiClient client = sdk.getPlatform().client;
 
         connect(client);
