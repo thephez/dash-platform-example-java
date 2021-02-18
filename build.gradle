@@ -6,12 +6,20 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    implementation "org.dashj:dashj-core:0.18-SNAPSHOT"
+    implementation 'org.dashevo:dashpay:0.17-SNAPSHOT'
+    implementation 'org.dashevo:platform-core:0.17-SNAPSHOT'
+    implementation 'org.dashevo:dpp:0.17-SNAPSHOT'
+    implementation 'org.dashevo:dapi-client:0.17-SNAPSHOT'
+    implementation 'org.slf4j:slf4j-jdk14:1.7.28'
 }
 
 test {
