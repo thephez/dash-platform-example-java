@@ -8,6 +8,9 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        url 'https://jitpack.io'
+    }
 }
 
 dependencies {
@@ -17,9 +20,11 @@ dependencies {
     implementation "org.dashj:dashj-core:0.18-SNAPSHOT"
     implementation 'org.dashevo:dashpay:0.17-SNAPSHOT'
     implementation 'org.dashevo:platform-core:0.17-SNAPSHOT'
-    implementation 'org.dashevo:dpp:0.17-SNAPSHOT'
+    //implementation 'org.dashevo:dpp:0.17-SNAPSHOT'
     implementation 'org.dashevo:dapi-client:0.17-SNAPSHOT'
     implementation 'org.slf4j:slf4j-jdk14:1.7.28'
+
+    implementation 'com.github.dashevo:android-dpp:dpp-0.17-SNAPSHOT'
 }
 
 test {
