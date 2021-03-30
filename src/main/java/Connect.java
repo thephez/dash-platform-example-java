@@ -5,8 +5,11 @@ import org.dashevo.dapiclient.DapiClient;
 public class Connect {
 
     public static void main(String[] args) {
-        Client sdk = new Client(new ClientOptions("testnet"));
-        //sdk.getPlatform().setClient(new DapiClient("174.34.233.134", false));
+        ClientOptions options = ClientOptions.builder()
+                .network("testnet")
+                // .dapiAddress("35.163.152.74")
+                .build();
+        Client sdk = new Client(options);
         DapiClient client = sdk.getPlatform().client;
 
         connect(client);

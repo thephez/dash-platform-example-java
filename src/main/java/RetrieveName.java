@@ -7,12 +7,14 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class RetrieveName {
-    static Client sdk = new Client(new ClientOptions("testnet"));
+    static ClientOptions options = ClientOptions.builder()
+            .network("testnet")
+            // .dapiAddress("35.163.152.74")
+            .build();
+    static Client sdk = new Client(options);
     static String nameUniqueIdentityId = "BSNxbs99zCFvEtK8qrewYTVxNKt4DnFQ8sPbsb8nrDuf";
 
     public static void main(String[] args) {
-        // sdk.getPlatform().setClient(new DapiClient("174.34.233.130", false));
-
         resolveByName();
         retrieveNameByRecord();
         retrieveNameBySearch();

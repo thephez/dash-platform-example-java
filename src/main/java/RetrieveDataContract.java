@@ -9,9 +9,11 @@ public class RetrieveDataContract {
     static String contractId = "6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi";
 
     public static void main(String[] args) {
-        sdk = new Client(new ClientOptions("testnet"));
-        // Uncomment the following line to request from a local node running platform services
-        //sdk.getPlatform().setClient(new DapiClient("127.0.0.1", false));
+        ClientOptions options = ClientOptions.builder()
+                .network("testnet")
+                // .dapiAddress("127.0.0.1") // Uncomment to request from a local node running platform services
+                .build();
+        sdk = new Client(options);
 
         retrieveContract();
     }
