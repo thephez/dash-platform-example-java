@@ -1,4 +1,5 @@
 import org.dashevo.Client;
+import org.dashevo.client.ClientOptions;
 import org.dashevo.dapiclient.DapiClient;
 import org.dashevo.dpp.identity.Identity;
 import org.json.JSONObject;
@@ -8,7 +9,7 @@ public class RetrieveIdentity {
     static String id = "BSNxbs99zCFvEtK8qrewYTVxNKt4DnFQ8sPbsb8nrDuf";
 
     public static void main(String[] args) {
-        sdk = new Client("testnet");
+        sdk = new Client(new ClientOptions("testnet"));
         // Uncomment the following line to request from a local node running platform services
         // sdk.getPlatform().setClient(new DapiClient("127.0.0.1", false));
 

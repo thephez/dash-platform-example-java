@@ -1,4 +1,5 @@
 import org.dashevo.Client;
+import org.dashevo.client.ClientOptions;
 import org.dashevo.dapiclient.DapiClient;
 import org.dashevo.dpp.document.Document;
 import org.json.JSONObject;
@@ -6,11 +7,11 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class RetrieveName {
-    static Client sdk = new Client("testnet");
+    static Client sdk = new Client(new ClientOptions("testnet"));
     static String nameUniqueIdentityId = "BSNxbs99zCFvEtK8qrewYTVxNKt4DnFQ8sPbsb8nrDuf";
 
     public static void main(String[] args) {
-        sdk.getPlatform().setClient(new DapiClient("174.34.233.130", false));
+        // sdk.getPlatform().setClient(new DapiClient("174.34.233.130", false));
 
         resolveByName();
         retrieveNameByRecord();
