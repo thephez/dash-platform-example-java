@@ -1,22 +1,20 @@
 import org.dashevo.Client;
-import org.dashevo.dapiclient.DapiClient;
+import org.dashevo.client.ClientOptions;
 import org.dashevo.dapiclient.model.DocumentQuery;
 import org.dashevo.dpp.document.Document;
-import org.dashevo.platform.ContractInfo;
 import org.json.JSONObject;
 
 import java.util.List;
-import java.util.Map;
 
 public class RetrieveDocuments {
 
     public static void main(String[] args) {
-        Client client = new Client("testnet");
-        client.getPlatform().setClient(new DapiClient("174.34.233.123", false));
-
-        // Add a named contract to the app list
-        String contractId = "6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi";
-        ((Map)client.getPlatform().getApps()).put("tutorialContract", new ContractInfo(contractId, null));
+        ClientOptions options = ClientOptions.builder()
+                .network("testnet")
+                // .dapiAddress("35.163.152.74")
+                .app("tutorialContract", "6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi")
+                .build();
+        Client client = new Client(options);
 
         retrieveDocuments(client);
     }
