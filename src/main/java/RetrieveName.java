@@ -1,6 +1,5 @@
 import org.dashevo.Client;
 import org.dashevo.client.ClientOptions;
-import org.dashevo.dapiclient.DapiClient;
 import org.dashevo.dpp.document.Document;
 import org.json.JSONObject;
 

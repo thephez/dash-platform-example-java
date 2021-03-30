@@ -1,13 +1,10 @@
 import org.dashevo.Client;
 import org.dashevo.client.ClientOptions;
-import org.dashevo.dapiclient.DapiClient;
 import org.dashevo.dapiclient.model.DocumentQuery;
 import org.dashevo.dpp.document.Document;
-import org.dashevo.platform.ContractInfo;
 import org.json.JSONObject;
 
 import java.util.List;
-import java.util.Map;
 
 public class RetrieveDocuments {
 
