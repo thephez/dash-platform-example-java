@@ -1,4 +1,3 @@
-import org.bitcoinj.wallet.Wallet;
 import org.dashevo.Client;
 import org.dashevo.client.ClientOptions;
 import org.dashevo.client.WalletOptions;
@@ -20,9 +19,6 @@ public class RegisterDataContract {
                 .walletOptions(new WalletOptions(mnemonic, 0))
                 .build();
         sdk = new Client(options);
-
-        Wallet wallet = sdk.getWallet();
-
         //retrieveContract("6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi");
         registerContract();
     }
@@ -31,7 +27,7 @@ public class RegisterDataContract {
         try {
             Identity identity = sdk.getPlatform().getIdentities().getByPublicKeyHash(sdk.getWallet().getBlockchainIdentityKeyChain().getWatchingKey().getPubKeyHash());
 
-            System.out.println(new JSONObject(identity.toJSON()).toString());
+            System.out.println(new JSONObject((identity != null) ? identity.toJSON() : null).toString());
 
             // Tutorial contract
             String ownerId = identity.getId().toString();
@@ -58,7 +54,7 @@ public class RegisterDataContract {
             System.out.println("---- Retrieving new contract");
             DataContract publishedContract = sdk.getPlatform().getContracts().get(tutorialContract.getId());
             System.out.println("DataContract: -----------------------------------");
-            System.out.println(new JSONObject(publishedContract.toJSON()).toString(2));
+            System.out.println(new JSONObject((publishedContract != null) ? publishedContract.toJSON() : null).toString(2));
         } catch (Exception e) {
             System.out.printf("\nSomething went wrong:\n%s%n", e);
         }
@@ -66,6 +62,6 @@ public class RegisterDataContract {
 
     private static void retrieveContract(String contractId) {
         DataContract existingContract = sdk.getPlatform().getContracts().get(contractId);
-        System.out.printf("Retrieved contract: %s%n", new JSONObject(existingContract != null ? existingContract.toJSON() : null).toString(2));
+        System.out.printf("Retrieved contract: %s%n", new JSONObject((existingContract != null) ? existingContract.toJSON() : null).toString(2));
     }
 }
