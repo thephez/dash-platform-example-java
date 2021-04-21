@@ -79,10 +79,10 @@ Add the following to the "dependencies" section of `build.gradle` as shown in [t
 
 ```text
     implementation "org.dashj:dashj-core:0.18-SNAPSHOT"
-    implementation 'org.dashevo:dashpay:0.17-SNAPSHOT'
-    implementation 'org.dashevo:platform-core:0.17-SNAPSHOT'
-    implementation 'org.dashevo:dpp:0.17-SNAPSHOT'
-    implementation 'org.dashevo:dapi-client:0.17-SNAPSHOT'
+    implementation 'org.dashevo:dashpay:0.18-SNAPSHOT'
+    implementation 'org.dashevo:platform-core:0.18-SNAPSHOT'
+    implementation 'org.dashevo:dpp:0.18-SNAPSHOT'
+    implementation 'org.dashevo:dapi-client:0.18-SNAPSHOT'
     implementation 'org.slf4j:slf4j-jdk14:1.7.28'
 ```
 
