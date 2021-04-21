@@ -1,3 +1,4 @@
+import org.bitcoinj.crypto.DeterministicKey;
 import org.dashevo.Client;
 import org.dashevo.client.ClientOptions;
 import org.dashevo.client.WalletOptions;
@@ -24,7 +25,8 @@ public class RegisterDataContract {
 
     private static void registerContract() {
         try {
-            Identity identity = sdk.getPlatform().getIdentities().getByPublicKeyHash(sdk.getWallet().getBlockchainIdentityKeyChain().getWatchingKey().getPubKeyHash());
+            DeterministicKey identityKey = sdk.getWallet().getBlockchainIdentityKeyChain().getWatchingKey();
+            Identity identity = sdk.getPlatform().getIdentities().getByPublicKeyHash(identityKey.getPubKeyHash());
 
             // Tutorial contract
             String ownerId = identity.getId().toString();
@@ -37,7 +39,7 @@ public class RegisterDataContract {
 
             try {
                 System.out.println("---- Broadcasting transition");
-                DataContractCreateTransition transition = sdk.getPlatform().getContracts().broadcast(tutorialContract, identity, sdk.getWallet().getBlockchainIdentityKeyChain().getWatchingKey(), 0);
+                DataContractCreateTransition transition = sdk.getPlatform().getContracts().broadcast(tutorialContract, identity, identityKey, 0);
                 System.out.println("---- Transition broadcast");
                 System.out.println(new JSONObject(transition.toJSON()).toString());
             } catch (Exception e) {
