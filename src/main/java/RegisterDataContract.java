@@ -33,7 +33,6 @@ public class RegisterDataContract {
 
             Map<String, Object> contractDocuments = contractDocs.toMap();
             DataContract tutorialContract = sdk.getPlatform().getContracts().create(contractDocuments, identity);
-            System.out.println(tutorialContract.getId());
             System.out.println(new JSONObject(tutorialContract.toJSON()).toString());
 
             try {
