@@ -1,4 +1,3 @@
-import org.bitcoinj.core.ECKey;
 import org.bitcoinj.crypto.DeterministicKey;
 import org.dashevo.Client;
 import org.dashevo.client.ClientOptions;
@@ -8,6 +7,9 @@ import org.dashevo.dpp.document.Document;
 import org.dashevo.dpp.identity.Identity;
 import org.json.JSONObject;
 
+import java.time.Clock;
+import java.time.Instant;
+import java.time.ZoneOffset;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +34,7 @@ public class SubmitDocument {
             DeterministicKey identityKey = sdk.getWallet().getBlockchainIdentityKeyChain().getWatchingKey();
             Identity identity = sdk.getPlatform().getIdentities().getByPublicKeyHash(identityKey.getPubKeyHash());
 
-            JSONObject docJson = new JSONObject("{\"message\": \"Java test\"}");
+            JSONObject docJson = new JSONObject("{\"message\": \"Java test @ " + Instant.now(Clock.system(ZoneOffset.UTC)) + "\"}");
             Map<String, Object> docProperties = docJson.toMap();
 
             // Create the note document
@@ -50,7 +52,7 @@ public class SubmitDocument {
 
             Thread.sleep(10000L);
             System.out.println("---- Retrieving new document");
-            DocumentQuery queryOpts = new DocumentQuery.Builder().startAt(0).limit(10).build();
+            DocumentQuery queryOpts = new DocumentQuery.Builder().where("$id", "==", noteDocument.getId()).build();
             List<Document> docs = sdk.getPlatform().getDocuments().get("tutorialContract.note", queryOpts);
             for (Document doc : docs) {
                 System.out.printf("%s%n", new JSONObject(doc.toJSON()).toString(2));
