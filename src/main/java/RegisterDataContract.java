@@ -19,7 +19,6 @@ public class RegisterDataContract {
                 .walletOptions(new WalletOptions(mnemonic, 0))
                 .build();
         sdk = new Client(options);
-        //retrieveContract("6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi");
         registerContract();
     }
 
@@ -27,17 +26,13 @@ public class RegisterDataContract {
         try {
             Identity identity = sdk.getPlatform().getIdentities().getByPublicKeyHash(sdk.getWallet().getBlockchainIdentityKeyChain().getWatchingKey().getPubKeyHash());
 
-            System.out.println(new JSONObject((identity != null) ? identity.toJSON() : null).toString());
-
             // Tutorial contract
             String ownerId = identity.getId().toString();
-            System.out.println(ownerId);
             String jsonstring = "{\"protocolVersion\": 0, \"$schema\": \"https://schema.dash.org/dpp-0-4-0/meta/data-contract\", \"ownerId\": \"" + ownerId + "\", \"documents\": {\"note\": {\"properties\": {\"message\": {\"type\": \"string\"}}, \"additionalProperties\": false }}}";
             JSONObject contractDocs = new JSONObject(jsonstring);
-            // System.out.println(contractDocs);
 
-            Map<String, Object> rawContract = contractDocs.toMap();
-            DataContract tutorialContract = sdk.getPlatform().getContracts().create(rawContract, identity);
+            Map<String, Object> contractDocuments = contractDocs.toMap();
+            DataContract tutorialContract = sdk.getPlatform().getContracts().create(contractDocuments, identity);
             System.out.println(tutorialContract.getId());
             System.out.println(new JSONObject(tutorialContract.toJSON()).toString());
 
@@ -58,10 +53,5 @@ public class RegisterDataContract {
         } catch (Exception e) {
             System.out.printf("\nSomething went wrong:\n%s%n", e);
         }
-    }
-
-    private static void retrieveContract(String contractId) {
-        DataContract existingContract = sdk.getPlatform().getContracts().get(contractId);
-        System.out.printf("Retrieved contract: %s%n", new JSONObject((existingContract != null) ? existingContract.toJSON() : null).toString(2));
     }
 }
