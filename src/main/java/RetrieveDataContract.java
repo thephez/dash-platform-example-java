@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class RetrieveDataContract {
     static Client sdk;
-    static String contractId = "6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi";
+    static String contractId = "GY9KLtcWGjaDtAqrfN85PWNEPNUNMABnyF1udsgMSLo8";
 
     public static void main(String[] args) {
         ClientOptions options = ClientOptions.builder()

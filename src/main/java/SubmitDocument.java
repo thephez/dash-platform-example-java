@@ -23,7 +23,7 @@ public class SubmitDocument {
                 .network("testnet")
                 // .dapiAddress("127.0.0.1") // Uncomment to request from a local node running platform services
                 .walletOptions(new WalletOptions(mnemonic, 0))
-                .app("tutorialContract", "A1TPQcpJPhKbaX3bRSsG7gHJQSEYMqtf1BgBnAkkgJAu")
+                .app("tutorialContract", "GY9KLtcWGjaDtAqrfN85PWNEPNUNMABnyF1udsgMSLo8")
                 .build();
         sdk = new Client(options);
         submitDocument();
