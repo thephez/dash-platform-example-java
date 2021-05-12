@@ -14,31 +14,7 @@ especially [android-dashpay](https://github.com/dashevo/android-dashpay).
 
 ## Install
 
-1. To build this project it is first necessary to build the dependencies as follows:
-
-```bash
-git clone -b master https://github.com/dashevo/android-dpp.git android-dpp
-cd android-dpp
-gradlew build
-cd ..
-
-git clone -b master https://github.com/dashevo/dapi-client-android dapi-client-android
-cd dapi-client-android
-gradlew build
-cd ..
-
-git clone -b master https://github.com/dashevo/android-dashpay.git android-dashpay
-cd android-dashpay
-gradlew build
-cd ..
-
-git clone https://github.com/dashevo/dashj.git dashj
-cd dashj
-mvn clean install -DskipTests
-cd ..
-```
-
-2. Install [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+Install [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
 ## Usage 
 
@@ -85,6 +61,11 @@ Add the following to the "dependencies" section of `build.gradle` as shown in [t
     implementation 'org.dashj.platform:dapi-client:0.19-SNAPSHOT'
     implementation 'org.slf4j:slf4j-jdk14:1.7.28'
 ```
+
+Navigate to the Gradle tool window (`View -> Tool Windows -> Gradle`) and click `Reload All Gradle Projects` to ensure
+the newly added dependencies are recognized.
+
+![Gradle Reload example](./gradle-reload.png)
 
 ### Add example
 
