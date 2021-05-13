@@ -11,7 +11,7 @@ public class RetrieveName {
             // .dapiAddress("35.163.152.74")
             .build();
     static Client sdk = new Client(options);
-    static String nameUniqueIdentityId = "BSNxbs99zCFvEtK8qrewYTVxNKt4DnFQ8sPbsb8nrDuf";
+    static String nameUniqueIdentityId = "Fi6GjAGko997xvVKorAbouhcoP5rokjR5cGfqtiqZgST";
 
     public static void main(String[] args) {
         resolveByName();
@@ -21,7 +21,7 @@ public class RetrieveName {
 
     private static void resolveByName() {
         try {
-            Document name = sdk.getPlatform().getNames().get("user-0001");
+            Document name = sdk.getPlatform().getNames().get("yoda");
             System.out.printf("Name retrieved: %s%n", new JSONObject(name != null ? name.toJSON() : null).toString(2));
         } catch (Exception e) {
             System.out.printf("\nSomething went wrong:\n%s%n", e);
@@ -39,7 +39,7 @@ public class RetrieveName {
 
     private static void retrieveNameBySearch() {
         try {
-            List<Document> names = sdk.getPlatform().getNames().search("user-0001", "dash", true, 1, 1);
+            List<Document> names = sdk.getPlatform().getNames().search("yoda", "dash", true, 1, 1);
             System.out.printf("Name retrieved: %s%n", new JSONObject(names.get(0).toJSON()).toString(2));
         } catch (Exception e) {
             System.out.printf("\nSomething went wrong:\n%s%n", e);

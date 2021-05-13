@@ -12,7 +12,7 @@ public class RetrieveDocuments {
         ClientOptions options = ClientOptions.builder()
                 .network("testnet")
                 // .dapiAddress("35.163.152.74")
-                .app("tutorialContract", "6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi")
+                .app("tutorialContract", "GY9KLtcWGjaDtAqrfN85PWNEPNUNMABnyF1udsgMSLo8")
                 .build();
         Client client = new Client(options);
 
